@@ -8,19 +8,21 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.orbitas.kittenstore.R
+import com.orbitas.kittenstore.data.KittyEntity
 import com.orbitas.kittenstore.presentation.view.viewmodel.KittyDetailViewModel
 
 @Composable
 fun KittyDetailView (kittyDetailViewModel: KittyDetailViewModel = KittyDetailViewModel()) {
+    val kitty = kittyDetailViewModel.kitty
     Column {
         Image(
             painter = painterResource(id = R.drawable.ic_launcher_background),
             contentDescription = "Cat"
         )
-        Text(text = kittyDetailViewModel.catName)
-        Text(text = "The cat is ${kittyDetailViewModel.catAge} years old")
+        Text(text = kitty.name)
+        Text(text = "The cat is ${kitty.age} years old")
         Text(text = kittyDetailViewModel.getCatGenre())
-        Text(text = "The cat weight is ${kittyDetailViewModel.catWeight} kg")
+        Text(text = "The cat weight is ${kitty.weight} kg")
     }
 }
 
@@ -28,9 +30,12 @@ fun KittyDetailView (kittyDetailViewModel: KittyDetailViewModel = KittyDetailVie
 @Composable
 fun KittyDetailView_Preview() {
     val kittyDetailViewModel = KittyDetailViewModel()
-    kittyDetailViewModel.catName = "Random Cat Name"
-    kittyDetailViewModel.catAge = 6
-    kittyDetailViewModel.catIsFemale = true
-    kittyDetailViewModel.catWeight = 4.6f
+    var kitty = KittyEntity(
+        "Sola",
+        6,
+        true,
+        4.7f
+    )
+    kittyDetailViewModel.kitty = kitty
     KittyDetailView(kittyDetailViewModel = kittyDetailViewModel)
 }

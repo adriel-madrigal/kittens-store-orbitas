@@ -1,16 +1,19 @@
 package com.orbitas.kittenstore.presentation.view.viewmodel
 
 import androidx.lifecycle.ViewModel
+import com.orbitas.kittenstore.data.KittyEntity
 
 class KittyDetailViewModel : ViewModel() {
 
-    var catName = "This is your cats name"
-    var catAge = 7
-    var catIsFemale = true
-    var catWeight = 4.5f
+    var kitty = KittyEntity(
+        name = "Kitty",
+        age = 9,
+        isFemale = true,
+        weight = 4.5f
+    )
 
     fun getCatGenre(): String {
-        val genre = if (catIsFemale) {
+        val genre = if (kitty.isFemale) {
             "Female"
         } else {
             "Male"
