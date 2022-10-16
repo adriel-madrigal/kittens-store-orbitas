@@ -10,6 +10,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.orbitas.kittenstore.presentation.view.KittyListView
 import com.orbitas.kittenstore.ui.theme.KittenStoreTheme
 import com.orbitas.kittenstore.view.kittydetail.KittyDetailView
 
@@ -19,7 +20,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             KittenStoreTheme {
                 // A surface container using the 'background' color from the theme
-                KittyDetailView()
+                KittyListView()
             }
         }
     }
